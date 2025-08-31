@@ -27,7 +27,6 @@ function principal(readline) {
     });
 }
 
-
 function calcularPerdaCarga(readline) {
     let vazao = 0;
     let diametroTubo = 0;
