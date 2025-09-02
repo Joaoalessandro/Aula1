@@ -30,6 +30,7 @@ function principal(readline) {
     });
 }
 
+
 //____________________________________________________________________________________________________
 
 function verificarParImpar(readline) {
@@ -37,7 +38,8 @@ function verificarParImpar(readline) {
         const numero = parseInt(input);
         if (numero % 2 === 0) {
             console.log("Número é PAR");
-        } else {
+        }
+        if (numero % 2 !== 0) {
             console.log("Número é ÍMPAR");
         }
         principal(readline);
@@ -51,7 +53,8 @@ function reajustaSalario(readline) {
 
         if (salario <= 1412.00) {
             novoSalario = salario * 1.5;
-        } else {
+        }
+        if (salario > 1412.00) {
             novoSalario = salario * 1.4;
         }
 
@@ -71,7 +74,8 @@ function verificar3025(readline) {
 
         if (resultado === numero) {
             console.log("Número possui a característica 3025.");
-        } else {
+        }
+        if (resultado !== numero) {
             console.log("Número NÃO possui a característica 3025.");
         }
         principal(readline);
@@ -84,9 +88,11 @@ function classificarEleitor(readline) {
 
         if (idade < 16) {
             console.log("Classe Eleitoral: Não-eleitor");
-        } else if (idade >= 18 && idade <= 65) {
+        }
+        if (idade >= 18 && idade <= 65) {
             console.log("Classe Eleitoral: Eleitor Obrigatório");
-        } else {
+        }
+        if (idade > 65 || (idade >= 16 && idade < 18)) {
             console.log("Classe Eleitoral: Eleitor Facultativo");
         }
         principal(readline);
@@ -105,10 +111,12 @@ function calcularEquacaoSegundoGrau(readline) {
 
                 if (delta < 0) {
                     console.log("RAÍZES IMAGINÁRIAS");
-                } else if (delta === 0) {
+                }
+                if (delta === 0) {
                     const raiz = -B / (2 * A);
                     console.log(`RAIZ ÚNICA: x = ${raiz.toFixed(2)}`);
-                } else {
+                }
+                if (delta > 0) {
                     const raiz1 = (-B + Math.sqrt(delta)) / (2 * A);
                     const raiz2 = (-B - Math.sqrt(delta)) / (2 * A);
                     console.log(`RAÍZES DISTINTAS: x1 = ${raiz1.toFixed(2)}, x2 = ${raiz2.toFixed(2)}`);
@@ -129,13 +137,16 @@ function calcularTarifaBancaria(readline) {
                 if (saldoMedio < 1000) {
                     tarifa = 25.00;
                     console.log(`Cliente: ${nome} | Conta: ${conta} | Tarifa: R$ ${tarifa.toFixed(2)} (Básica)`);
-                } else if (saldoMedio <= 2000) {
+                }
+                if (saldoMedio >= 1000 && saldoMedio <= 2000) {
                     tarifa = 20.00;
                     console.log(`Cliente: ${nome} | Conta: ${conta} | Tarifa: R$ ${tarifa.toFixed(2)} (Prata)`);
-                } else if (saldoMedio <= 3500) {
+                }
+                if (saldoMedio > 2000 && saldoMedio <= 3500) {
                     tarifa = 13.00;
                     console.log(`Cliente: ${nome} | Conta: ${conta} | Tarifa: R$ ${tarifa.toFixed(2)} (Ouro)`);
-                } else {
+                }
+                if (saldoMedio > 3500) {
                     console.log(`Cliente: ${nome} | Conta: ${conta} | Tarifa: ISENTA (Prêmio)`);
                 }
                 principal(readline);

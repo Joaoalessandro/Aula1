@@ -1,7 +1,8 @@
 // João Alessandro da Silva Santos
-// Para Rodar execute node 1.js
+// Para rodar execute: node 1.js
+
 function principal(readline) {
-  readline.question('Escolha uma opção:\n1-Custo de Viagem; \n2-Calcular Delta; \n3-Calcular média final;\n4-Calcular volume da pirâmide;\n5-Sair;\n\n', escolha => {
+  readline.question('Escolha uma opção:\n1 - Custo de Viagem\n2 - Calcular Delta\n3 - Calcular Média Final\n4 - Calcular Volume da Pirâmide\n5 - Sair\n\nDigite sua opção: ', escolha => {
     switch (escolha) {
       case '1':
         calcularCustoViagem(readline);
@@ -27,36 +28,33 @@ function principal(readline) {
 }
 
 function calcularVolumeDaPiramide(readline) {
-  let base = 0;
-  let altura = 0;
   const valorPadrao = 1 / 3;
-  let resultado = 0;
 
   readline.question("Insira a altura da pirâmide: ", inputAltura => {
-    altura = parseFloat(inputAltura);
+    const altura = parseFloat(inputAltura);
 
     readline.question("Insira a base da pirâmide: ", inputBase => {
-      base = parseFloat(inputBase);
+      const base = parseFloat(inputBase);
 
       if (base > 0 && altura > 0) {
-        resultado = valorPadrao * altura * base;
-        console.log(`O volume da pirâmide é: ${resultado}`);
+        const resultado = valorPadrao * altura * base;
+        console.log(`O volume da pirâmide é: ${resultado.toFixed(2)}`);
       } else {
-        console.log("Por favor, insira valores válidos para o cálculo.")
+        console.log("Por favor, insira valores válidos para o cálculo.");
       }
-    })
-  })
 
+      readline.close();
+      startApp();
+    });
+  });
 }
 
 function calcularCustoViagem(readline) {
-  let distancia;
   const precoCombustivel = 6.44;
   const consumoVeiculo = 12.5;
 
   readline.question('Qual a distância total da viagem em km? ', inputDistancia => {
-    distancia = parseFloat(inputDistancia);
-
+    const distancia = parseFloat(inputDistancia);
 
     if (distancia > 0 && precoCombustivel > 0 && consumoVeiculo > 0) {
       const litrosConsumidos = distancia / consumoVeiculo;
@@ -65,75 +63,64 @@ function calcularCustoViagem(readline) {
     } else {
       console.log('Por favor, insira valores válidos para o cálculo.');
     }
+
     readline.close();
     startApp();
-  })
+  });
 }
 
 function calcularMediaFinal(readline) {
-  let nota1 = 0;
-  let nota2 = 0;
-  let nota3 = 0;
-  let notaFinal = 0;
+  readline.question("Qual a primeira nota do aluno? ", inputResposta1 => {
+    const nota1 = parseFloat(inputResposta1);
 
-  readline.question("Qual a primeira nota do aluno?", inputResposta1 => {
-    nota1 = parseFloat(inputResposta1);
+    readline.question("Qual a segunda nota do aluno? ", inputResposta2 => {
+      const nota2 = parseFloat(inputResposta2);
 
-    readline.question("Qual a segunda nota do aluno?", inputResposta2 => {
-      nota2 = parseFloat(inputResposta2);
-
-      readline.question("Qual a terceira nota do aluno?", inputResposta3 => {
-        nota3 = parseFloat(inputResposta3);
+      readline.question("Qual a terceira nota do aluno? ", inputResposta3 => {
+        const nota3 = parseFloat(inputResposta3);
 
         if (nota1 > 0 && nota2 > 0 && nota3 > 0) {
-          notaFinal = ((nota1 * 2) + (nota2 * 3) + (nota3 * 5)) / 3;
+          const notaFinal = ((nota1 * 2) + (nota2 * 3) + (nota3 * 5)) / 10;
           console.log(`Sua nota final é: ${notaFinal.toFixed(2)}`);
         } else {
           console.log('Por favor, insira valores válidos para o cálculo.');
-
         }
 
-      })
-    })
-  })
-
+        readline.close();
+        startApp();
+      });
+    });
+  });
 }
 
 function calcularDelta(readline) {
-  let valorA = 0;
-  let valorB = 0;
-  let valorC = 0;
-  let delta = 0;
-
   readline.question('Qual o valor de A? ', valorDeA => {
-    valorA = parseFloat(valorDeA);
+    const valorA = parseFloat(valorDeA);
 
     readline.question('Qual o valor de B? ', valorDeB => {
-      valorB = parseFloat(valorDeB);
+      const valorB = parseFloat(valorDeB);
 
       readline.question('Qual o valor de C? ', valorDeC => {
-        valorC = parseFloat(valorDeC);
+        const valorC = parseFloat(valorDeC);
 
         if (valorA > 0 && valorB > 0 && valorC > 0) {
-          delta = (Math.pow(valorB, 2)) - (4 * valorA * valorC)
-
-          console.log(`o valor de delta é: ${delta}.`);
+          const delta = Math.pow(valorB, 2) - (4 * valorA * valorC);
+          console.log(`O valor de delta é: ${delta.toFixed(2)}`);
         } else {
           console.log('Por favor, insira valores válidos para o cálculo.');
         }
+
         readline.close();
         startApp();
-      })
-    })
-  })
+      });
+    });
+  });
 }
 
 function info(readline) {
-
-  console.log('\n\n\n\n\n\n\n\n\n\nAutor: João Alessandro da Silva Santos\n\n\n');
+  console.log('\n\n\nAutor: João Alessandro da Silva Santos\n');
   readline.close();
 }
-
 
 function startApp() {
   const readline = require('readline').createInterface({
@@ -145,4 +132,3 @@ function startApp() {
 }
 
 startApp();
-
