@@ -1,3 +1,7 @@
+//asdf asdf asdf asdf asdf asdf asdf asdf asdf as
+// asdf asdfasdfasdf asdf asdfasf asf asf as ffas
+//a sdasd ffasdf asdff sdff assdf sd
+// asdfa sdfasd fasdf sdfasf 
 function calcularPrecoMoedas() {
     let euro = 4.617;
     let libraEsterlina = 6.816;
